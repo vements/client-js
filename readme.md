@@ -11,7 +11,7 @@ See the [JavaScript API docs](https://example.com/) for more information on how 
 To install the Vements Client Library for JavaScript, use the following command:
 
 ```bash
-$ npm install @vements/client-javascript --save
+$ npm install @vements/client-js --save
 ```
 
 
@@ -20,7 +20,7 @@ $ npm install @vements/client-javascript --save
 The following example shows how to use the Vements Client Library for JavaScript to create a new Vements client, and then use that client to create a new Vements scoreboard.
 
 ```javascript
-import { Client } from "@vements/client-javascript";
+import { Client } from "@vements/client-js";
 
 const client = Client("YOUR_API_KEY")
 const scoreboard = client.scoreboard.Create({display: "My Scoreboard", rankDir: "desc", public: false})

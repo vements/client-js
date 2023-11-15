@@ -23,11 +23,10 @@ SOFTWARE.
 // NB: This is a generated file; any changes will be lost.
 
 class User {
-  constructor(userId, email, display, db, created, updated) {
+  constructor(userId, email, display, created, updated) {
     this.userId = userId;
     this.email = email;
     this.display = display;
-    this.db = db;
     this.created = created;
     this.updated = updated;
   }

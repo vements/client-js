@@ -1,3 +1,5 @@
+[![Build and Test](https://github.com/vements/client-js/actions/workflows/build-test.yaml/badge.svg?branch=main&event=push)](https://github.com/vements/client-js/actions/workflows/build-test.yaml)
+
 ## Vements Client Library for JavaScript
 
 The Vements Client Library for JavaScript is a client library for accessing the Vements API from applications written in the JavaScript language. It also includes a command line tool that can be used to interact with the API in scripts or in a terminal.

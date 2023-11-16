@@ -6,7 +6,7 @@ The Vements Client Library for JavaScript is a client library for accessing the 
 
 ### Documentation
 
-See the [JavaScript API docs](https://example.com/) for more information on how to use this library.
+See the [JavaScript API docs](https://vements.io/docs/clients/javascript/) for more information on how to use this library.
 
 ### Installation
 

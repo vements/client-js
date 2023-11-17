@@ -1,4 +1,6 @@
-[![Build and Test](https://github.com/vements/client-js/actions/workflows/build-test.yaml/badge.svg?branch=main&event=push)](https://github.com/vements/client-js/actions/workflows/build-test.yaml)
+[![Build and Test](https://github.com/vements/client-js/actions/workflows/build-test.yaml/badge.svg?branch=main&event=push)](https://github.com/vements/client-js/actions/workflows/build-test.yaml) [![GitHub tag](https://img.shields.io/github/tag/vements/client-js?include_prereleases=&sort=semver&color=blue)](https://github.com/vements/client-js/releases/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+[![issues - client-js](https://img.shields.io/github/issues/vements/client-js)](https://github.com/vements/client-js/issues)
 
 ## Vements Client Library for JavaScript
 

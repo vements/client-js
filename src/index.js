@@ -28,6 +28,9 @@ import EncodeJsonMiddleware from "mappersmith/middleware/encode-json";
 import { Config } from "./config";
 import { CLI } from "./cli";
 
+export * from "./config";
+export * from "./cli";
+
 export const Client = ({ apiKey, config, tags }) => {
   const { pathname, origin } = new URL(
     config.serverUrl(tags || ["production"]),

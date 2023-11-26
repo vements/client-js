@@ -1,6 +1,6 @@
 {
   "name": "@vements/client-js",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Achievements and Scoreboards for Everyone",
   "main": "dist/vements.cjs.js",
   "module": "dist/vements.esm.js",

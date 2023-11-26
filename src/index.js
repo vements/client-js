@@ -37,7 +37,7 @@ export const Client = ({ apiKey, config, tags }) => {
   );
   const headers = { "x-api-key": apiKey, "content-type": "application/json" };
 
-  return forge({
+  const inner = forge({
     clientId: "vements",
     host: origin,
     middleware: [EncodeJsonMiddleware],
@@ -157,6 +157,306 @@ export const Client = ({ apiKey, config, tags }) => {
       },
     },
   });
+
+  return {
+    achievement: {
+      leaderboard: async ({ achievementId }) => {
+        const result = await inner.achievement.leaderboard({
+          achievement_id: achievementId,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`leaderboard failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).achievement_leaderboard;
+      },
+
+      record: async ({ achievementId, participantId, value, recorded }) => {
+        const result = await inner.achievement.record({
+          achievement_id: achievementId,
+          body: {
+            participant_id: participantId,
+            value: value,
+            recorded: recorded,
+          },
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`record failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).insert_progress_one;
+      },
+
+      list: async ({ projectId, limit, offset }) => {
+        const result = await inner.achievement.list({
+          project_id: projectId,
+          limit: limit,
+          offset: offset,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`list failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).achievement;
+      },
+
+      create: async ({
+        projectId,
+        display,
+        goal,
+        repeats,
+        lockedImage,
+        unlockedImage,
+        position,
+        public_,
+        extra,
+      }) => {
+        const result = await inner.achievement.create({
+          body: {
+            project_id: projectId,
+            display: display,
+            goal: goal,
+            repeats: repeats,
+            locked_image: lockedImage,
+            unlocked_image: unlockedImage,
+            position: position,
+            public: public_,
+            extra: extra,
+          },
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`create failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).insert_achievement_one;
+      },
+
+      read: async ({ achievementId }) => {
+        const result = await inner.achievement.read({
+          achievement_id: achievementId,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`read failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).achievement;
+      },
+
+      update: async ({
+        achievementId,
+        display,
+        goal,
+        repeats,
+        lockedImage,
+        unlockedImage,
+        position,
+        public_,
+        extra,
+      }) => {
+        const result = await inner.achievement.update({
+          achievement_id: achievementId,
+          body: {
+            display: display,
+            goal: goal,
+            repeats: repeats,
+            locked_image: lockedImage,
+            unlocked_image: unlockedImage,
+            position: position,
+            public: public_,
+            extra: extra,
+          },
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`update failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).update_achievement_by_pk;
+      },
+
+      delete: async ({ achievementId }) => {
+        const result = await inner.achievement.delete({
+          achievement_id: achievementId,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`delete failed: ` + result.responseStatus);
+        }
+        return true;
+      },
+    },
+
+    participant: {
+      progress: async ({ participantId }) => {
+        const result = await inner.participant.progress({
+          participant_id: participantId,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`progress failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).participant_progress;
+      },
+
+      scores: async ({ participantId }) => {
+        const result = await inner.participant.scores({
+          participant_id: participantId,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`scores failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).participant_scores;
+      },
+
+      list: async ({ projectId, limit, offset }) => {
+        const result = await inner.participant.list({
+          project_id: projectId,
+          limit: limit,
+          offset: offset,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`list failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).participant;
+      },
+
+      create: async ({ projectId, display, externalId, image, extra }) => {
+        const result = await inner.participant.create({
+          body: {
+            project_id: projectId,
+            display: display,
+            external_id: externalId,
+            image: image,
+            extra: extra,
+          },
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`create failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).insert_participant_one;
+      },
+
+      read: async ({ participantId }) => {
+        const result = await inner.participant.read({
+          participant_id: participantId,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`read failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).participant;
+      },
+
+      update: async ({ participantId, display, externalId, image, extra }) => {
+        const result = await inner.participant.update({
+          participant_id: participantId,
+          body: {
+            display: display,
+            external_id: externalId,
+            image: image,
+            extra: extra,
+          },
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`update failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).update_participant_by_pk;
+      },
+
+      delete: async ({ participantId }) => {
+        const result = await inner.participant.delete({
+          participant_id: participantId,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`delete failed: ` + result.responseStatus);
+        }
+        return true;
+      },
+    },
+
+    scoreboard: {
+      record: async ({ scoreboardId, participantId, value, recorded }) => {
+        const result = await inner.scoreboard.record({
+          scoreboard_id: scoreboardId,
+          body: {
+            participant_id: participantId,
+            value: value,
+            recorded: recorded,
+          },
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`record failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).insert_score_one;
+      },
+
+      scores: async ({ scoreboardId, from, to }) => {
+        const result = await inner.scoreboard.scores({
+          scoreboard_id: scoreboardId,
+          from: from,
+          to: to,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`scores failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).scoreboard_scores;
+      },
+
+      list: async ({ projectId, limit, offset }) => {
+        const result = await inner.scoreboard.list({
+          project_id: projectId,
+          limit: limit,
+          offset: offset,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`list failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).scoreboard;
+      },
+
+      create: async ({ projectId, display, rankDir, public_, extra }) => {
+        const result = await inner.scoreboard.create({
+          body: {
+            project_id: projectId,
+            display: display,
+            rank_dir: rankDir,
+            public: public_,
+            extra: extra,
+          },
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`create failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).insert_scoreboard_one;
+      },
+
+      read: async ({ scoreboardId }) => {
+        const result = await inner.scoreboard.read({
+          scoreboard_id: scoreboardId,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`read failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).scoreboard;
+      },
+
+      update: async ({ scoreboardId, display, rankDir, public_, extra }) => {
+        const result = await inner.scoreboard.update({
+          scoreboard_id: scoreboardId,
+          body: {
+            display: display,
+            rank_dir: rankDir,
+            public: public_,
+            extra: extra,
+          },
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`update failed: ` + result.responseStatus);
+        }
+        return JSON.parse(result.responseData).update_scoreboard_by_pk;
+      },
+
+      delete: async ({ scoreboardId }) => {
+        const result = await inner.scoreboard.delete({
+          scoreboard_id: scoreboardId,
+        });
+        if (result.responseStatus != 200) {
+          throw new Error(`delete failed: ` + result.responseStatus);
+        }
+        return true;
+      },
+    },
+  };
 };
 
 if (require.main === module) {

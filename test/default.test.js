@@ -92,7 +92,7 @@ test("achievement leaderboard default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.achievement.leaderboard({
-    achievement_id: setup.getValue("achievement_id"),
+    achievementId: setup.getValue("achievement_id"),
   });
 
   expect(result).toBeDefined();
@@ -104,12 +104,10 @@ test("achievement record default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.achievement.record({
-    achievement_id: setup.getValue("achievement_id"),
-    body: {
-      participant_id: setup.getRandom("participant_id"),
-      value: setup.getRandom("value"),
-      recorded: setup.getRandom("recorded"),
-    },
+    achievementId: setup.getValue("achievement_id"),
+    participantId: setup.getRandom("participant_id"),
+    value: setup.getRandom("value"),
+    recorded: setup.getRandom("recorded"),
   });
 
   expect(result).toBeDefined();
@@ -121,7 +119,7 @@ test("participant progress default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.participant.progress({
-    participant_id: setup.getValue("participant_id"),
+    participantId: setup.getValue("participant_id"),
   });
 
   expect(result).toBeDefined();
@@ -133,7 +131,7 @@ test("participant scores default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.participant.scores({
-    participant_id: setup.getValue("participant_id"),
+    participantId: setup.getValue("participant_id"),
   });
 
   expect(result).toBeDefined();
@@ -145,12 +143,10 @@ test("scoreboard record default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.scoreboard.record({
-    scoreboard_id: setup.getValue("scoreboard_id"),
-    body: {
-      participant_id: setup.getRandom("participant_id"),
-      value: setup.getRandom("value"),
-      recorded: setup.getRandom("recorded"),
-    },
+    scoreboardId: setup.getValue("scoreboard_id"),
+    participantId: setup.getRandom("participant_id"),
+    value: setup.getRandom("value"),
+    recorded: setup.getRandom("recorded"),
   });
 
   expect(result).toBeDefined();
@@ -162,7 +158,7 @@ test("scoreboard scores default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.scoreboard.scores({
-    scoreboard_id: setup.getValue("scoreboard_id"),
+    scoreboardId: setup.getValue("scoreboard_id"),
     from: "",
     to: "",
   });
@@ -176,7 +172,7 @@ test("achievement list default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.achievement.list({
-    project_id: setup.getValue("project_id"),
+    projectId: setup.getValue("project_id"),
     limit: "",
     offset: "",
   });
@@ -190,17 +186,15 @@ test("achievement create default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.achievement.create({
-    body: {
-      project_id: setup.getValue("project_id"),
-      display: setup.getRandom("display"),
-      goal: setup.getRandom("goal"),
-      repeats: setup.getRandom("repeats"),
-      locked_image: setup.getRandom("locked_image"),
-      unlocked_image: setup.getRandom("unlocked_image"),
-      position: setup.getRandom("position"),
-      public: setup.getRandom("public"),
-      extra: setup.getRandom("extra"),
-    },
+    projectId: setup.getValue("project_id"),
+    display: setup.getRandom("display"),
+    goal: setup.getRandom("goal"),
+    repeats: setup.getRandom("repeats"),
+    lockedImage: setup.getRandom("locked_image"),
+    unlockedImage: setup.getRandom("unlocked_image"),
+    position: setup.getRandom("position"),
+    public_: setup.getRandom("public"),
+    extra: setup.getRandom("extra"),
   });
 
   expect(result).toBeDefined();
@@ -212,7 +206,7 @@ test("achievement read default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.achievement.read({
-    achievement_id: setup.getValue("achievement_id"),
+    achievementId: setup.getValue("achievement_id"),
   });
 
   expect(result).toBeDefined();
@@ -224,17 +218,15 @@ test("achievement update default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.achievement.update({
-    achievement_id: setup.getValue("achievement_id"),
-    body: {
-      display: setup.getRandom("display"),
-      goal: setup.getRandom("goal"),
-      repeats: setup.getRandom("repeats"),
-      locked_image: setup.getRandom("locked_image"),
-      unlocked_image: setup.getRandom("unlocked_image"),
-      position: setup.getRandom("position"),
-      public: setup.getRandom("public"),
-      extra: setup.getRandom("extra"),
-    },
+    achievementId: setup.getValue("achievement_id"),
+    display: setup.getRandom("display"),
+    goal: setup.getRandom("goal"),
+    repeats: setup.getRandom("repeats"),
+    lockedImage: setup.getRandom("locked_image"),
+    unlockedImage: setup.getRandom("unlocked_image"),
+    position: setup.getRandom("position"),
+    public_: setup.getRandom("public"),
+    extra: setup.getRandom("extra"),
   });
 
   expect(result).toBeDefined();
@@ -246,7 +238,7 @@ test("achievement delete default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.achievement.delete({
-    achievement_id: setup.getValue("achievement_id"),
+    achievementId: setup.getValue("achievement_id"),
   });
 
   expect(result).toBeDefined();
@@ -258,7 +250,7 @@ test("participant list default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.participant.list({
-    project_id: setup.getValue("project_id"),
+    projectId: setup.getValue("project_id"),
     limit: "",
     offset: "",
   });
@@ -272,13 +264,11 @@ test("participant create default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.participant.create({
-    body: {
-      project_id: setup.getValue("project_id"),
-      display: setup.getRandom("display"),
-      external_id: setup.getRandom("external_id"),
-      image: setup.getRandom("image"),
-      extra: setup.getRandom("extra"),
-    },
+    projectId: setup.getValue("project_id"),
+    display: setup.getRandom("display"),
+    externalId: setup.getRandom("external_id"),
+    image: setup.getRandom("image"),
+    extra: setup.getRandom("extra"),
   });
 
   expect(result).toBeDefined();
@@ -290,7 +280,7 @@ test("participant read default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.participant.read({
-    participant_id: setup.getValue("participant_id"),
+    participantId: setup.getValue("participant_id"),
   });
 
   expect(result).toBeDefined();
@@ -302,13 +292,11 @@ test("participant update default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.participant.update({
-    participant_id: setup.getValue("participant_id"),
-    body: {
-      display: setup.getRandom("display"),
-      external_id: setup.getRandom("external_id"),
-      image: setup.getRandom("image"),
-      extra: setup.getRandom("extra"),
-    },
+    participantId: setup.getValue("participant_id"),
+    display: setup.getRandom("display"),
+    externalId: setup.getRandom("external_id"),
+    image: setup.getRandom("image"),
+    extra: setup.getRandom("extra"),
   });
 
   expect(result).toBeDefined();
@@ -320,7 +308,7 @@ test("participant delete default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.participant.delete({
-    participant_id: setup.getValue("participant_id"),
+    participantId: setup.getValue("participant_id"),
   });
 
   expect(result).toBeDefined();
@@ -332,7 +320,7 @@ test("scoreboard list default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.scoreboard.list({
-    project_id: setup.getValue("project_id"),
+    projectId: setup.getValue("project_id"),
     limit: "",
     offset: "",
   });
@@ -346,13 +334,11 @@ test("scoreboard create default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.scoreboard.create({
-    body: {
-      project_id: setup.getValue("project_id"),
-      display: setup.getRandom("display"),
-      rank_dir: setup.getRandom("rank_dir"),
-      public: setup.getRandom("public"),
-      extra: setup.getRandom("extra"),
-    },
+    projectId: setup.getValue("project_id"),
+    display: setup.getRandom("display"),
+    rankDir: setup.getRandom("rank_dir"),
+    public_: setup.getRandom("public"),
+    extra: setup.getRandom("extra"),
   });
 
   expect(result).toBeDefined();
@@ -364,7 +350,7 @@ test("scoreboard read default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.scoreboard.read({
-    scoreboard_id: setup.getValue("scoreboard_id"),
+    scoreboardId: setup.getValue("scoreboard_id"),
   });
 
   expect(result).toBeDefined();
@@ -376,13 +362,11 @@ test("scoreboard update default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.scoreboard.update({
-    scoreboard_id: setup.getValue("scoreboard_id"),
-    body: {
-      display: setup.getRandom("display"),
-      rank_dir: setup.getRandom("rank_dir"),
-      public: setup.getRandom("public"),
-      extra: setup.getRandom("extra"),
-    },
+    scoreboardId: setup.getValue("scoreboard_id"),
+    display: setup.getRandom("display"),
+    rankDir: setup.getRandom("rank_dir"),
+    public_: setup.getRandom("public"),
+    extra: setup.getRandom("extra"),
   });
 
   expect(result).toBeDefined();
@@ -394,7 +378,7 @@ test("scoreboard delete default happy path", async () => {
   expect(setup.db).toBeDefined();
 
   const result = await setup.client.scoreboard.delete({
-    scoreboard_id: setup.getValue("scoreboard_id"),
+    scoreboardId: setup.getValue("scoreboard_id"),
   });
 
   expect(result).toBeDefined();

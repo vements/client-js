@@ -75,7 +75,7 @@ class Achievement {
     lockedImage,
     unlockedImage,
     position,
-    public,
+    public_,
     created,
     updated,
     extra,
@@ -88,7 +88,7 @@ class Achievement {
     this.lockedImage = lockedImage;
     this.unlockedImage = unlockedImage;
     this.position = position;
-    this.public = public;
+    this.public_ = public_;
     this.created = created;
     this.updated = updated;
     this.extra = extra;
@@ -123,7 +123,7 @@ class Scoreboard {
     projectId,
     display,
     rankDir,
-    public,
+    public_,
     created,
     updated,
     extra,
@@ -132,7 +132,7 @@ class Scoreboard {
     this.projectId = projectId;
     this.display = display;
     this.rankDir = rankDir;
-    this.public = public;
+    this.public_ = public_;
     this.created = created;
     this.updated = updated;
     this.extra = extra;
@@ -253,7 +253,7 @@ class AchievementCreateRequest {
     lockedImage,
     unlockedImage,
     position,
-    public,
+    public_,
     extra,
   ) {
     this.projectId = projectId;
@@ -263,7 +263,7 @@ class AchievementCreateRequest {
     this.lockedImage = lockedImage;
     this.unlockedImage = unlockedImage;
     this.position = position;
-    this.public = public;
+    this.public_ = public_;
     this.extra = extra;
   }
 }
@@ -288,7 +288,7 @@ class AchievementUpdateRequest {
     lockedImage,
     unlockedImage,
     position,
-    public,
+    public_,
     extra,
   ) {
     this.display = display;
@@ -297,7 +297,7 @@ class AchievementUpdateRequest {
     this.lockedImage = lockedImage;
     this.unlockedImage = unlockedImage;
     this.position = position;
-    this.public = public;
+    this.public_ = public_;
     this.extra = extra;
   }
 }
@@ -370,11 +370,11 @@ class ParticipantListResponse {
 }
 
 class ScoreboardCreateRequest {
-  constructor(projectId, display, rankDir, public, extra) {
+  constructor(projectId, display, rankDir, public_, extra) {
     this.projectId = projectId;
     this.display = display;
     this.rankDir = rankDir;
-    this.public = public;
+    this.public_ = public_;
     this.extra = extra;
   }
 }
@@ -392,10 +392,10 @@ class ScoreboardReadResponse {
 }
 
 class ScoreboardUpdateRequest {
-  constructor(display, rankDir, public, extra) {
+  constructor(display, rankDir, public_, extra) {
     this.display = display;
     this.rankDir = rankDir;
-    this.public = public;
+    this.public_ = public_;
     this.extra = extra;
   }
 }

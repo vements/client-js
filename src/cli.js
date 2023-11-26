@@ -63,10 +63,10 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.achievement
         .leaderboard({
-          achievement_id: args.achievementId,
+          achievementId: args.achievementId,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -92,15 +92,13 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.achievement
         .record({
-          achievement_id: args.achievementId,
-          body: {
-            participant_id: args.participantId,
-            value: args.value,
-            recorded: args.recorded,
-          },
+          achievementId: args.achievementId,
+          participantId: args.participantId,
+          value: args.value,
+          recorded: args.recorded,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -117,12 +115,12 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.achievement
         .list({
-          project_id: args.projectId,
+          projectId: args.projectId,
           limit: args.limit,
           offset: args.offset,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -153,20 +151,18 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.achievement
         .create({
-          body: {
-            project_id: args.projectId,
-            display: args.display,
-            goal: args.goal,
-            repeats: args.repeats,
-            locked_image: args.lockedImage,
-            unlocked_image: args.unlockedImage,
-            position: args.position,
-            public: args.public,
-            extra: args.extra,
-          },
+          projectId: args.projectId,
+          display: args.display,
+          goal: args.goal,
+          repeats: args.repeats,
+          lockedImage: args.lockedImage,
+          unlockedImage: args.unlockedImage,
+          position: args.position,
+          public_: args.public_,
+          extra: args.extra,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -185,10 +181,10 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.achievement
         .read({
-          achievement_id: args.achievementId,
+          achievementId: args.achievementId,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -223,20 +219,18 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.achievement
         .update({
-          achievement_id: args.achievementId,
-          body: {
-            display: args.display,
-            goal: args.goal,
-            repeats: args.repeats,
-            locked_image: args.lockedImage,
-            unlocked_image: args.unlockedImage,
-            position: args.position,
-            public: args.public,
-            extra: args.extra,
-          },
+          achievementId: args.achievementId,
+          display: args.display,
+          goal: args.goal,
+          repeats: args.repeats,
+          lockedImage: args.lockedImage,
+          unlockedImage: args.unlockedImage,
+          position: args.position,
+          public_: args.public_,
+          extra: args.extra,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -255,10 +249,10 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.achievement
         .delete({
-          achievement_id: args.achievementId,
+          achievementId: args.achievementId,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -283,10 +277,10 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.participant
         .progress({
-          participant_id: args.participantId,
+          participantId: args.participantId,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -305,10 +299,10 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.participant
         .scores({
-          participant_id: args.participantId,
+          participantId: args.participantId,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -325,12 +319,12 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.participant
         .list({
-          project_id: args.projectId,
+          projectId: args.projectId,
           limit: args.limit,
           offset: args.offset,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -349,16 +343,14 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.participant
         .create({
-          body: {
-            project_id: args.projectId,
-            display: args.display,
-            external_id: args.externalId,
-            image: args.image,
-            extra: args.extra,
-          },
+          projectId: args.projectId,
+          display: args.display,
+          externalId: args.externalId,
+          image: args.image,
+          extra: args.extra,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -377,10 +369,10 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.participant
         .read({
-          participant_id: args.participantId,
+          participantId: args.participantId,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -403,16 +395,14 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.participant
         .update({
-          participant_id: args.participantId,
-          body: {
-            display: args.display,
-            external_id: args.externalId,
-            image: args.image,
-            extra: args.extra,
-          },
+          participantId: args.participantId,
+          display: args.display,
+          externalId: args.externalId,
+          image: args.image,
+          extra: args.extra,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -431,10 +421,10 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.participant
         .delete({
-          participant_id: args.participantId,
+          participantId: args.participantId,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -466,15 +456,13 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.scoreboard
         .record({
-          scoreboard_id: args.scoreboardId,
-          body: {
-            participant_id: args.participantId,
-            value: args.value,
-            recorded: args.recorded,
-          },
+          scoreboardId: args.scoreboardId,
+          participantId: args.participantId,
+          value: args.value,
+          recorded: args.recorded,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -495,12 +483,12 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.scoreboard
         .scores({
-          scoreboard_id: args.scoreboardId,
+          scoreboardId: args.scoreboardId,
           from: args.from,
           to: args.to,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -517,12 +505,12 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.scoreboard
         .list({
-          project_id: args.projectId,
+          projectId: args.projectId,
           limit: args.limit,
           offset: args.offset,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -541,16 +529,14 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.scoreboard
         .create({
-          body: {
-            project_id: args.projectId,
-            display: args.display,
-            rank_dir: args.rankDir,
-            public: args.public,
-            extra: args.extra,
-          },
+          projectId: args.projectId,
+          display: args.display,
+          rankDir: args.rankDir,
+          public_: args.public_,
+          extra: args.extra,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -569,10 +555,10 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.scoreboard
         .read({
-          scoreboard_id: args.scoreboardId,
+          scoreboardId: args.scoreboardId,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -595,16 +581,14 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.scoreboard
         .update({
-          scoreboard_id: args.scoreboardId,
-          body: {
-            display: args.display,
-            rank_dir: args.rankDir,
-            public: args.public,
-            extra: args.extra,
-          },
+          scoreboardId: args.scoreboardId,
+          display: args.display,
+          rankDir: args.rankDir,
+          public_: args.public_,
+          extra: args.extra,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);
@@ -623,10 +607,10 @@ export const CLI = (config, client, args) => {
     .action((args) => {
       client.scoreboard
         .delete({
-          scoreboard_id: args.scoreboardId,
+          scoreboardId: args.scoreboardId,
         })
         .then((response) => {
-          console.log(response.data());
+          console.log(response);
         })
         .catch((response) => {
           console.error("ERROR:", response);

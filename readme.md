@@ -39,7 +39,7 @@ The Vements Client Library for JavaScript includes a command line tool that can 
 #### Usage
 
 ```bash 
-$ vements --help
+$ npm run build; node dist/vements.cjs.js --help
 ```
 
 The JavaScript CLI tool supports all of the same operations as the CLI tool in other languages:
